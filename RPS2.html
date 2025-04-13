@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<button class="selector">Rock Paper Skizzors</button>
+<script>
+
+//COMPUTER CHOICE
+function getcomputerChoice(){
+const getRandom = Math.floor(Math.random()*3);
+if (getRandom === 0) {return "rock"}
+else if (getRandom === 1) {return "paper"}
+else if (getRandom === 2) {return "scissors"}
+}
+
+
+//HUMAN CHOICE
+function getHumanChoice(){
+const chooser = document.querySelector(".selector")
+chooser.addEventListener("click",() =>{
+let humanchoice = prompt("Enter rock, paper or scissors");
+console.log(humanchoice)
+const compChoice = getcomputerChoice()
+console.log(compChoice)
+
+if (compChoice===humanchoice){console.log("Draw!")}
+else if (compChoice==="rock" && humanchoice === "paper"){console.log("you win!")}
+else if (compChoice==="paper" && humanchoice === "scissors"){console.log("you win!")}
+else if (compChoice==="scissors" && humanchoice === "rock"){console.log("you win!")}
+else {console.log("you lose!")}
+
+
+});
+}
+getHumanChoice()
+
+function playGame(){
+
+}
+
+
+
+
+
+
+
+
+//COMMENTED OUT 
+/*{
+const HumanChoice = 
+document.querySelector("#HumanChoice");
+const log = document.querySelector("#log");
+HumanChoice.addEventListener("click", () =>{
+    const compchoice = getcomputerChoice();
+let sign = prompt("Rock, Paper or Scissors?");
+log.textContent = `You chose: ${sign}, Computer chose: ${compchoice}`;
+});
+}
+
+
+
+function playRound(humanChoice, computerChoice) {
+  // human rock
+if (humanChoice === "rock" && computerChoice === "scissors"){console.log("you win!")}
+else if (humanChoice = "rock" && computerChoice === "paper"){console.log("you lose!")}
+//human paper
+else if (humanChoice === "paper" && computerChoice === "scissors"){console.log("you lose!")}
+else if (humanChoice === "paper" && computerChoice === "rock"){console.log("you win!")}
+//human scissors
+else if (humanChoice === "scissors" && computerChoice === "paper"){console.log("you win!")}
+else if (humanChoice === "scissors" && computerChoice === "rock"){console.log("you lose!")}
+
+else if (humanChoice === computerChoice){console.log ("draw!")}
+else {console.log("Invalid input.")}
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getcomputerChoice();
+
+//playRound(humanSelection, computerSelection);
+*/
+
+
+</script> 
+</body>
+</html>
+
