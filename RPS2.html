@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<button class="selector">Rock Paper Skizzors</button>
+<script>
+
+//COMPUTER CHOICE
+function getcomputerChoice(){
+const getRandom = Math.floor(Math.random()*3);
+if (getRandom === 0) {return "rock"}
+else if (getRandom === 1) {return "paper"}
+else if (getRandom === 2) {return "scissors"}
+}
+
+
+//HUMAN CHOICE
+//note: when including the counter variables in the function eventlistener, 
+// each time you clicked the button, the variable was reset to 0, meaning the counter never went past 1!
+let gamecount = 0;
+let computerwincount = 0;
+let humanwincount = 0;
+function getHumanChoice(){
+const chooser = document.querySelector(".selector")
+chooser.addEventListener("click",() =>{
+let humanchoice = prompt("Enter rock, paper or scissors");
+console.log(humanchoice)
+const compChoice = getcomputerChoice()
+console.log(compChoice)
+
+gamecount++
+if (compChoice===humanchoice){console.log("Draw!")}
+else if (compChoice==="rock" && humanchoice === "paper"){console.log("you win!"), humanwincount++}
+else if (compChoice==="paper" && humanchoice === "scissors"){console.log("you win!"), humanwincount++}
+else if (compChoice==="scissors" && humanchoice === "rock"){console.log("you win!"), humanwincount++}
+else {console.log("you lose!"), computerwincount++}
+
+console.log(humanwincount)
+console.log(computerwincount)
+console.log(gamecount)
+
+if (gamecount===5 && humanwincount>computerwincount){console.log("you won the contest!!!!!")}
+else if (gamecount===5 && computerwincount>humanwincount){console.log("overall, you have lost :(")}
+else if(gamecount===5 && computerwincount===humanwincount){console.log("overall draw")}
+});
+}
+getHumanChoice()
+
+/*function countGames(){
+ let counterbutton = document.querySelector('.selector');
+ let count = 0;
+ counterbutton.addEventListener("click", ()=>{
+count++
+console.log(count)
+});
+}
+countGames()
+
+
+
+
+
+
+
+
+//COMMENTED OUT 
+/*{
+const HumanChoice = 
+document.querySelector("#HumanChoice");
+const log = document.querySelector("#log");
+HumanChoice.addEventListener("click", () =>{
+    const compchoice = getcomputerChoice();
+let sign = prompt("Rock, Paper or Scissors?");
+log.textContent = `You chose: ${sign}, Computer chose: ${compchoice}`;
+});
+}
+
+
+
+function playRound(humanChoice, computerChoice) {
+  // human rock
+if (humanChoice === "rock" && computerChoice === "scissors"){console.log("you win!")}
+else if (humanChoice = "rock" && computerChoice === "paper"){console.log("you lose!")}
+//human paper
+else if (humanChoice === "paper" && computerChoice === "scissors"){console.log("you lose!")}
+else if (humanChoice === "paper" && computerChoice === "rock"){console.log("you win!")}
+//human scissors
+else if (humanChoice === "scissors" && computerChoice === "paper"){console.log("you win!")}
+else if (humanChoice === "scissors" && computerChoice === "rock"){console.log("you lose!")}
+
+else if (humanChoice === computerChoice){console.log ("draw!")}
+else {console.log("Invalid input.")}
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getcomputerChoice();
+
+//playRound(humanSelection, computerSelection);
+*/
+
+
+</script> 
+</body>
+</html>
+
